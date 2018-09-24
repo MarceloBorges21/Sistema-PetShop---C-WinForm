@@ -1,0 +1,686 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{691A848F-2CD3-4F35-92E2-A2318A22F8B4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PetForm</RootNamespace>
+    <AssemblyName>PetForm</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="acessoGeral.cs" />
+    <Compile Include="Animais_\CadastrarAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animais_\CadastrarAnimal.Designer.cs">
+      <DependentUpon>CadastrarAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animais_\ListarAnimal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Animais_\ListarAnimal.Designer.cs">
+      <DependentUpon>ListarAnimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_\CadastrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_\CadastrarCliente.Designer.cs">
+      <DependentUpon>CadastrarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes_\ListarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes_\ListarCliente.Designer.cs">
+      <DependentUpon>ListarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Especie.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Especies_\CadastraEspecie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especies_\CadastraEspecie.Designer.cs">
+      <DependentUpon>CadastraEspecie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Especies_\ListarEspecie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Especies_\ListarEspecie.Designer.cs">
+      <DependentUpon>ListarEspecie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login_\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login_\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionario.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionarios_\CadastrarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionarios_\CadastrarFuncionario.Designer.cs">
+      <DependentUpon>CadastrarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Funcionarios_\ListarFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Funcionarios_\ListarFuncionario.Designer.cs">
+      <DependentUpon>ListarFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login_\TelaInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login_\TelaInicial.Designer.cs">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Ordem_Serviço.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet14.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet14.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet15.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet15.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet16.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet17.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet17.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet18.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet19.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet19.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet20.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet20.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet21.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet21.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PetShopDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PetShopDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raca.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Raça_\CadastrarRaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raça_\CadastrarRaca.Designer.cs">
+      <DependentUpon>CadastrarRaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Raça_\ListarRaca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raça_\ListarRaca.Designer.cs">
+      <DependentUpon>ListarRaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servico.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Servico_\CadastrarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servico_\CadastrarServico.Designer.cs">
+      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servico_\FecharServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servico_\FecharServico.Designer.cs">
+      <DependentUpon>FecharServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servico_\ListarOrdem_Servico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servico_\ListarOrdem_Servico.Designer.cs">
+      <DependentUpon>ListarOrdem_Servico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servico_\ListarServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servico_\ListarServico.Designer.cs">
+      <DependentUpon>ListarServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servico_\NovoServico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servico_\NovoServico.Designer.cs">
+      <DependentUpon>NovoServico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View_2.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Animais_\CadastrarAnimal.resx">
+      <DependentUpon>CadastrarAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Animais_\ListarAnimal.resx">
+      <DependentUpon>ListarAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_\CadastrarCliente.resx">
+      <DependentUpon>CadastrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes_\ListarCliente.resx">
+      <DependentUpon>ListarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Especies_\CadastraEspecie.resx">
+      <DependentUpon>CadastraEspecie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Especies_\ListarEspecie.resx">
+      <DependentUpon>ListarEspecie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login_\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionarios_\CadastrarFuncionario.resx">
+      <DependentUpon>CadastrarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Funcionarios_\ListarFuncionario.resx">
+      <DependentUpon>ListarFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login_\TelaInicial.resx">
+      <DependentUpon>TelaInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Raça_\CadastrarRaca.resx">
+      <DependentUpon>CadastrarRaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Raça_\ListarRaca.resx">
+      <DependentUpon>ListarRaca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servico_\CadastrarServico.resx">
+      <DependentUpon>CadastrarServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servico_\FecharServico.resx">
+      <DependentUpon>FecharServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servico_\ListarOrdem_Servico.resx">
+      <DependentUpon>ListarOrdem_Servico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servico_\ListarServico.resx">
+      <DependentUpon>ListarServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servico_\NovoServico.resx">
+      <DependentUpon>NovoServico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PetShopDataSet.xsc">
+      <DependentUpon>PetShopDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet.xss">
+      <DependentUpon>PetShopDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet1.xsc">
+      <DependentUpon>PetShopDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet1.xss">
+      <DependentUpon>PetShopDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet10.xsc">
+      <DependentUpon>PetShopDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet10.xss">
+      <DependentUpon>PetShopDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet11.xsc">
+      <DependentUpon>PetShopDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet11.xss">
+      <DependentUpon>PetShopDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet12.xsc">
+      <DependentUpon>PetShopDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet12.xss">
+      <DependentUpon>PetShopDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet13.xsc">
+      <DependentUpon>PetShopDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet13.xss">
+      <DependentUpon>PetShopDataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet14.xsc">
+      <DependentUpon>PetShopDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet14.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet14.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet14.xss">
+      <DependentUpon>PetShopDataSet14.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet15.xsc">
+      <DependentUpon>PetShopDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet15.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet15.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet15.xss">
+      <DependentUpon>PetShopDataSet15.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet16.xsc">
+      <DependentUpon>PetShopDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet16.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet16.xss">
+      <DependentUpon>PetShopDataSet16.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet17.xsc">
+      <DependentUpon>PetShopDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet17.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet17.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet17.xss">
+      <DependentUpon>PetShopDataSet17.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet18.xsc">
+      <DependentUpon>PetShopDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet18.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet18.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet18.xss">
+      <DependentUpon>PetShopDataSet18.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet19.xsc">
+      <DependentUpon>PetShopDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet19.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet19.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet19.xss">
+      <DependentUpon>PetShopDataSet19.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet2.xsc">
+      <DependentUpon>PetShopDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet2.xss">
+      <DependentUpon>PetShopDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet20.xsc">
+      <DependentUpon>PetShopDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet20.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet20.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet20.xss">
+      <DependentUpon>PetShopDataSet20.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet21.xsc">
+      <DependentUpon>PetShopDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet21.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet21.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet21.xss">
+      <DependentUpon>PetShopDataSet21.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet3.xsc">
+      <DependentUpon>PetShopDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet3.xss">
+      <DependentUpon>PetShopDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet4.xsc">
+      <DependentUpon>PetShopDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet4.xss">
+      <DependentUpon>PetShopDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet5.xsc">
+      <DependentUpon>PetShopDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet5.xss">
+      <DependentUpon>PetShopDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet6.xsc">
+      <DependentUpon>PetShopDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet6.xss">
+      <DependentUpon>PetShopDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet7.xsc">
+      <DependentUpon>PetShopDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet7.xss">
+      <DependentUpon>PetShopDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet8.xsc">
+      <DependentUpon>PetShopDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet8.xss">
+      <DependentUpon>PetShopDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet9.xsc">
+      <DependentUpon>PetShopDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="PetShopDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PetShopDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PetShopDataSet9.xss">
+      <DependentUpon>PetShopDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Resources\atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\script-php-sistema-gesto-pet-shop-profissional-D_NQ_NP_937439-MLB26635235331_012018-F.jpg" />
+    <None Include="Resources\gat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

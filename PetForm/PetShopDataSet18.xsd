@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PetShopDataSet18" targetNamespace="http://tempuri.org/PetShopDataSet18.xsd" xmlns:mstns="http://tempuri.org/PetShopDataSet18.xsd" xmlns="http://tempuri.org/PetShopDataSet18.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PetShopConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PetShopConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PetForm.Properties.Settings.GlobalReference.Default.PetShopConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="View_OedemServicoTableAdapter" GeneratorDataComponentClassName="View_OedemServicoTableAdapter" Name="View_OedemServico" UserDataComponentName="View_OedemServicoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="PetShopConnectionString (Settings)" DbObjectName="PetShop.dbo.View_OedemServico" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, NomeAnimal, Expr1, Funcionario, Expr2, [Data Ent], [Data Said], [Hora Ent], [Hora Said], Serviço, Expr3, Valor, [Pessoa Deixou], [Pessou Pegou], Status FROM dbo.View_OedemServico</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="NomeAnimal" DataSetColumn="NomeAnimal" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="Funcionario" DataSetColumn="Funcionario" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="Data Ent" DataSetColumn="Data Ent" />
+              <Mapping SourceColumn="Data Said" DataSetColumn="Data Said" />
+              <Mapping SourceColumn="Hora Ent" DataSetColumn="Hora Ent" />
+              <Mapping SourceColumn="Hora Said" DataSetColumn="Hora Said" />
+              <Mapping SourceColumn="Serviço" DataSetColumn="Serviço" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+              <Mapping SourceColumn="Valor" DataSetColumn="Valor" />
+              <Mapping SourceColumn="Pessoa Deixou" DataSetColumn="Pessoa Deixou" />
+              <Mapping SourceColumn="Pessou Pegou" DataSetColumn="Pessou Pegou" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="PetShopConnectionString (Settings)" DbObjectName="PetShop.dbo.View_OedemServico" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, NomeAnimal, Expr1, Funcionario, Expr2, [Data Ent], [Data Said], [Hora Ent], [Hora Said], Serviço, Expr3, Valor, [Pessoa Deixou], [Pessou Pegou], Status FROM dbo.View_OedemServico
+order by Status
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PetShopDataSet18" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PetShopDataSet18" msprop:Generator_UserDSName="PetShopDataSet18">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="View_OedemServico" msprop:Generator_TableClassName="View_OedemServicoDataTable" msprop:Generator_TableVarName="tableView_OedemServico" msprop:Generator_RowChangedName="View_OedemServicoRowChanged" msprop:Generator_TablePropName="View_OedemServico" msprop:Generator_RowDeletingName="View_OedemServicoRowDeleting" msprop:Generator_RowChangingName="View_OedemServicoRowChanging" msprop:Generator_RowEvHandlerName="View_OedemServicoRowChangeEventHandler" msprop:Generator_RowDeletedName="View_OedemServicoRowDeleted" msprop:Generator_RowClassName="View_OedemServicoRow" msprop:Generator_UserTableName="View_OedemServico" msprop:Generator_RowEvArgName="View_OedemServicoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="NomeAnimal" msprop:Generator_ColumnVarNameInTable="columnNomeAnimal" msprop:Generator_ColumnPropNameInRow="NomeAnimal" msprop:Generator_ColumnPropNameInTable="NomeAnimalColumn" msprop:Generator_UserColumnName="NomeAnimal">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:int" />
+              <xs:element name="Funcionario" msprop:Generator_ColumnVarNameInTable="columnFuncionario" msprop:Generator_ColumnPropNameInRow="Funcionario" msprop:Generator_ColumnPropNameInTable="FuncionarioColumn" msprop:Generator_UserColumnName="Funcionario">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr2" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" type="xs:int" />
+              <xs:element name="Data_x0020_Ent" msprop:Generator_ColumnVarNameInTable="columnData_Ent" msprop:Generator_ColumnPropNameInRow="Data_Ent" msprop:Generator_ColumnPropNameInTable="Data_EntColumn" msprop:Generator_UserColumnName="Data Ent" type="xs:dateTime" />
+              <xs:element name="Data_x0020_Said" msprop:Generator_ColumnVarNameInTable="columnData_Said" msprop:Generator_ColumnPropNameInRow="Data_Said" msprop:Generator_ColumnPropNameInTable="Data_SaidColumn" msprop:Generator_UserColumnName="Data Said" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Hora_x0020_Ent" msprop:Generator_ColumnVarNameInTable="columnHora_Ent" msprop:Generator_ColumnPropNameInRow="Hora_Ent" msprop:Generator_ColumnPropNameInTable="Hora_EntColumn" msprop:Generator_UserColumnName="Hora Ent">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hora_x0020_Said" msprop:Generator_ColumnVarNameInTable="columnHora_Said" msprop:Generator_ColumnPropNameInRow="Hora_Said" msprop:Generator_ColumnPropNameInTable="Hora_SaidColumn" msprop:Generator_UserColumnName="Hora Said" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Serviço" msprop:Generator_ColumnVarNameInTable="columnServiço" msprop:Generator_ColumnPropNameInRow="Serviço" msprop:Generator_ColumnPropNameInTable="ServiçoColumn" msprop:Generator_UserColumnName="Serviço">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr3" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_UserColumnName="Expr3" type="xs:int" />
+              <xs:element name="Valor" msprop:Generator_ColumnVarNameInTable="columnValor" msprop:Generator_ColumnPropNameInRow="Valor" msprop:Generator_ColumnPropNameInTable="ValorColumn" msprop:Generator_UserColumnName="Valor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Pessoa_x0020_Deixou" msprop:Generator_ColumnVarNameInTable="columnPessoa_Deixou" msprop:Generator_ColumnPropNameInRow="Pessoa_Deixou" msprop:Generator_ColumnPropNameInTable="Pessoa_DeixouColumn" msprop:Generator_UserColumnName="Pessoa Deixou">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pessou_x0020_Pegou" msprop:Generator_ColumnVarNameInTable="columnPessou_Pegou" msprop:Generator_ColumnPropNameInRow="Pessou_Pegou" msprop:Generator_ColumnPropNameInTable="Pessou_PegouColumn" msprop:Generator_UserColumnName="Pessou Pegou" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:View_OedemServico" />
+      <xs:field xpath="mstns:Id" />
+      <xs:field xpath="mstns:Expr1" />
+      <xs:field xpath="mstns:Expr2" />
+      <xs:field xpath="mstns:Expr3" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

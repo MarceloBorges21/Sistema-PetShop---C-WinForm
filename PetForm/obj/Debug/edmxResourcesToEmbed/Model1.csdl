@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PetShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Cliente" Type="Int32" Nullable="false" />
+    <Property Name="Id_Raca" Type="Int32" Nullable="false" />
+    <Property Name="Id_Especie" Type="Int32" Nullable="false" />
+    <Property Name="Id_Funcionario" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Idade" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Observacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Animal_Cliente" FromRole="Animal" ToRole="Cliente" />
+    <NavigationProperty Name="Especie" Relationship="Self.FK_Animal_Especie" FromRole="Animal" ToRole="Especie" />
+    <NavigationProperty Name="Funcionario" Relationship="Self.FK_Animal_Funcionario" FromRole="Animal" ToRole="Funcionario" />
+    <NavigationProperty Name="Raca" Relationship="Self.FK_Animal_Raca" FromRole="Animal" ToRole="Raca" />
+    <NavigationProperty Name="Ordem_Serviço" Relationship="Self.FK_Ordem_Serviço_Animal" FromRole="Animal" ToRole="Ordem_Serviço" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Endereco" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Funcionario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Cliente" FromRole="Cliente" ToRole="Animal" />
+    <NavigationProperty Name="Funcionario" Relationship="Self.FK_Cliente_Funcionario" FromRole="Cliente" ToRole="Funcionario" />
+  </EntityType>
+  <EntityType Name="Especie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Funcionario" Type="Int32" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Especie" FromRole="Especie" ToRole="Animal" />
+    <NavigationProperty Name="Funcionario" Relationship="Self.FK_Especie_Funcionario" FromRole="Especie" ToRole="Funcionario" />
+  </EntityType>
+  <EntityType Name="Funcionario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Funcionario" FromRole="Funcionario" ToRole="Animal" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_Funcionario" FromRole="Funcionario" ToRole="Cliente" />
+    <NavigationProperty Name="Especie" Relationship="Self.FK_Especie_Funcionario" FromRole="Funcionario" ToRole="Especie" />
+    <NavigationProperty Name="Ordem_Serviço" Relationship="Self.FK_Ordem_Serviço_Funcionario" FromRole="Funcionario" ToRole="Ordem_Serviço" />
+    <NavigationProperty Name="Raca" Relationship="Self.FK_Raca_Funcionario" FromRole="Funcionario" ToRole="Raca" />
+  </EntityType>
+  <EntityType Name="Ordem_Serviço">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_Animal" Type="Int32" Nullable="false" />
+    <Property Name="Id_Funcionario" Type="Int32" Nullable="false" />
+    <Property Name="DT_Entrada" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DT_Saida" Type="DateTime" Precision="0" />
+    <Property Name="Hora_Entrada" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Hora_Saida" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Id_Servico" Type="Int32" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Nome_Deixou" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nome_Pegou" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK_Ordem_Serviço_Animal" FromRole="Ordem_Serviço" ToRole="Animal" />
+    <NavigationProperty Name="Funcionario" Relationship="Self.FK_Ordem_Serviço_Funcionario" FromRole="Ordem_Serviço" ToRole="Funcionario" />
+    <NavigationProperty Name="Servico" Relationship="Self.FK_Ordem_Serviço_Servico" FromRole="Ordem_Serviço" ToRole="Servico" />
+  </EntityType>
+  <EntityType Name="Raca">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Funcionario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK_Animal_Raca" FromRole="Raca" ToRole="Animal" />
+    <NavigationProperty Name="Funcionario" Relationship="Self.FK_Raca_Funcionario" FromRole="Raca" ToRole="Funcionario" />
+  </EntityType>
+  <EntityType Name="Servico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Id_Funcionario" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ordem_Serviço" Relationship="Self.FK_Ordem_Serviço_Servico" FromRole="Servico" ToRole="Ordem_Serviço" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="View_2">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="nomeclien" />
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="Raça" />
+      <PropertyRef Name="Expr2" />
+      <PropertyRef Name="Expr3" />
+      <PropertyRef Name="nomefunc" />
+      <PropertyRef Name="Expr4" />
+      <PropertyRef Name="Nome" />
+      <PropertyRef Name="Idade" />
+      <PropertyRef Name="Observacao" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="nomeclien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr1" Type="Int32" Nullable="false" />
+    <Property Name="Raça" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr2" Type="Int32" Nullable="false" />
+    <Property Name="Especie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Expr3" Type="Int32" Nullable="false" />
+    <Property Name="nomefunc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Expr4" Type="Int32" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Idade" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Observacao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Animal_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Id_Cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Animal_Especie">
+    <End Role="Especie" Type="Self.Especie" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especie">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Id_Especie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Animal_Funcionario">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Id_Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Animal_Raca">
+    <End Role="Raca" Type="Self.Raca" Multiplicity="1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Raca">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Id_Raca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ordem_Serviço_Animal">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+    <End Role="Ordem_Serviço" Type="Self.Ordem_Serviço" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ordem_Serviço">
+        <PropertyRef Name="Id_Animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Funcionario">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="Id_Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Especie_Funcionario">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="0..1" />
+    <End Role="Especie" Type="Self.Especie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Especie">
+        <PropertyRef Name="Id_Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ordem_Serviço_Funcionario">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+    <End Role="Ordem_Serviço" Type="Self.Ordem_Serviço" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ordem_Serviço">
+        <PropertyRef Name="Id_Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Raca_Funcionario">
+    <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+    <End Role="Raca" Type="Self.Raca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Funcionario">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Raca">
+        <PropertyRef Name="Id_Funcionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ordem_Serviço_Servico">
+    <End Role="Servico" Type="Self.Servico" Multiplicity="1" />
+    <End Role="Ordem_Serviço" Type="Self.Ordem_Serviço" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ordem_Serviço">
+        <PropertyRef Name="Id_Servico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PetShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animal" EntityType="Self.Animal" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="Especie" EntityType="Self.Especie" />
+    <EntitySet Name="Funcionario" EntityType="Self.Funcionario" />
+    <EntitySet Name="Ordem_Serviço" EntityType="Self.Ordem_Serviço" />
+    <EntitySet Name="Raca" EntityType="Self.Raca" />
+    <EntitySet Name="Servico" EntityType="Self.Servico" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="View_2" EntityType="Self.View_2" />
+    <AssociationSet Name="FK_Animal_Cliente" Association="Self.FK_Animal_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Animal_Especie" Association="Self.FK_Animal_Especie">
+      <End Role="Especie" EntitySet="Especie" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Animal_Funcionario" Association="Self.FK_Animal_Funcionario">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Animal_Raca" Association="Self.FK_Animal_Raca">
+      <End Role="Raca" EntitySet="Raca" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ordem_Serviço_Animal" Association="Self.FK_Ordem_Serviço_Animal">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Ordem_Serviço" EntitySet="Ordem_Serviço" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Funcionario" Association="Self.FK_Cliente_Funcionario">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="Cliente" EntitySet="Cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Especie_Funcionario" Association="Self.FK_Especie_Funcionario">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="Especie" EntitySet="Especie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ordem_Serviço_Funcionario" Association="Self.FK_Ordem_Serviço_Funcionario">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="Ordem_Serviço" EntitySet="Ordem_Serviço" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Raca_Funcionario" Association="Self.FK_Raca_Funcionario">
+      <End Role="Funcionario" EntitySet="Funcionario" />
+      <End Role="Raca" EntitySet="Raca" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ordem_Serviço_Servico" Association="Self.FK_Ordem_Serviço_Servico">
+      <End Role="Servico" EntitySet="Servico" />
+      <End Role="Ordem_Serviço" EntitySet="Ordem_Serviço" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
